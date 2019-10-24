@@ -1,0 +1,105 @@
+
+<!-- <mat-card>
+    <button mat-button [matMenuTriggerFor]="belowMenu">Home</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Sobre</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Produtos</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Loja</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+</mat-card> -->
+
+<div class="container border border-primary">
+    <div class="list-group-item"><b>Produtos</b></div>
+    <table class="table" width="100%" bordercolor="#F2F2F2">
+
+        <tbody>
+
+
+            <tr *ngFor="let produto of produtos">
+                <td>
+                    <img src="{{produto.imagem}}" style="width: 200px" />
+
+
+                <td>
+
+                    <h5 class="card-title">{{produto.nome}}</h5><br>
+                    {{ produto.descricao }}<br>
+                    <h5 class="valor pt-3 text-right"> <span>{{produto.valor | currency: 'BRL': true}}</span></h5>
+
+                    <!-- <button class="btn btn-primary" type="button" (click)="open(content,produto)" [disabled]="disabled" (click)="disabled = !disabled" style="float:right">
+                        adicionar
+                    </button> -->
+
+                    <button class="btn btn-primary" type="button" (click)="open(content,produto)" style="float:right">
+                        adicionar
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Carrinho</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col" class="text-right">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>{{ produtoSelecionado.nome }}</td>
+                    <td>{{produtoSelecionado.valor}}</td>
+                    <td class="text-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            (click)="remover(produtoSelecionado)">Remover</button>
+
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Limpar Carrinho</button>
+        <button type="button" class="btn btn-primary" (click)="c('Save click')">Finalizar compra</button>
+    </div>
+</ng-template>
+
+<!-- Modal -->

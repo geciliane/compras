@@ -1,0 +1,15 @@
+<!-- <app-data-binding></app-data-binding> -->
+<!-- <app-jsonplaceholder></app-jsonplaceholder>
+<app-exemplos-pipes></app-exemplos-pipes> -->
+
+<!-- <app-produtos></app-produtos> -->
+
+<mat-card style="background-color:deepskyblue">
+    <button [routerLink]="['/', 'exemplos-pipes']" mat-button>Exemplos Pipes</button>
+    <button [routerLink]="['/', 'produtos']" mat-button>Produtos</button>
+    <button [routerLink]="['/', 'jsonplaceholder']" mat-button>Jsonplaceholder</button>
+    
+
+</mat-card>
+
+<router-outlet></router-outlet>

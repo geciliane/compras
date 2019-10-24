@@ -1,0 +1,10 @@
+
+<div class="container mt-5">
+    <h5>Pipes</h5>
+    <p>Titulo: {{livro.titulo | camelCase}}</p>
+    <p>Avaliação: {{livro.avaliacao | number: '1.1-2'}}</p>
+    <p>Preço: {{livro.preco | currency: 'BRL': true}}</p>
+    <p>Data: {{livro.dataLancamento}}</p>
+    <p>CPF: {{livro.cpf}}</p>
+    <p>CNPJ: {{livro.cnpj}}</p>
+</div>
